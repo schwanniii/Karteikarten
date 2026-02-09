@@ -2,11 +2,19 @@
 // Hardcoded Karten - passe hier deine Inhalte an
 // 'erklaerung' enthält die ausführliche Erklärung (nicht direkt auf Karte sichtbar)
 const CARDS = [
-  { frage: '1?', antwort: '1', erklaerung: 'Erklärung zu 1' },
-  { frage: '2?', antwort: '2', erklaerung: 'Erklärung zu 2' },
-  { frage: '3?', antwort: '3', erklaerung: 'Erklärung zu 3' },
-  { frage: '4?', antwort: '4', erklaerung: 'Erklärung zu 4' },
-  { frage: '5?', antwort: '5', erklaerung: 'Erklärung zu 5' }
+  { frage: 'Erwartungswert und Standardabweichung mit dem Taschenrechner', antwort: 'Tabelle mit Werten von k und korrespondierenden Wahrscheinlichkeiten anlegen und Menü 4,1,1 in der Tabelle ausführen', erklaerung: '<img src="Bild Erwartungswert und Standardabweichung.png" alt="Bild Erwartungswert und Standardabweichung">' },
+  { frage: 'Was ist der Befehl für eine Fakultät?', antwort: '! (Menü 5,1)', erklaerung: '<figure><img src="Bild Binomialkoeffizient Fakultät.png" alt="Bild Fakultät"><figcaption>1! = 1 und 0! = 1</figcaption></figure>' },
+  { frage: 'Anzahl der Möglichkeiten: ohne zurückzulegen und MIT Beachtung der Reihenfolge?', antwort: 'nPr (Menü 5,2)', erklaerung: '<img src="Mathe LK Hoodie.jpeg" alt="Mathe LK Hoodie">' },
+  { frage: 'Anzahl der Möglichkeiten: ohne zurückzulegen und OHNE Beachtung der Reihenfolge?', antwort: 'nCr (Menü 5,3)', erklaerung: '<img src="Frühstück.jpeg" alt="Frühstück">' },
+  { frage: 'n rationale Zufallszahlen zwischen 0 und 1', antwort: 'rand(n) (Menü 5,4,1)', erklaerung: '/' },
+  { frage: 'n ganze Zahlen zwischen a und b', antwort: 'randInt(a,b,n) (Menü 5,4,2)', erklaerung: '/' },
+  { frage: 'a ganze Zahlen bei einem Bernoulli-Versuch mit n Versuchen und Erfolgswahrscheinlichkeit p', antwort: 'randBin(n,p,a) (Menü 5,4,3)', erklaerung: '/' },
+  { frage: 'n Werte aus einer Normalverteilung mit Mittelwert μ und Standardabweichung σ', antwort: 'randNorm(μ,σ,n) (Menü 5,4,4)', erklaerung: '/' },
+  { frage: 'Wahrscheinlichkeit beim n-maligen Ziehen mit Zurücklegen (Binomialverteilung), k Erfolge zu erzielen', antwort: 'binomPdf(n,p,k) (Menü 5,5,A)', erklaerung: 'n = Anzahl der Versuche, p = Erfolgswahrscheinlichkeit, k = Anzahl der Erfolge' },
+  { frage: 'Wahrscheinlichkeit beim n-maligen Ziehen mit Zurücklegen (Binomialverteilung), a bis b Erfolge zu erzielen', antwort: 'binomCdf(n,p,a,b) (Menü 5,5,B)', erklaerung: 'n = Anzahl der Versuche, p = Erfolgswahrscheinlichkeit, a = untere Schranke, b = obere Schranke' },
+  { frage: 'Wahrscheinlichkeit für einen Wert X bei einer Normalverteilung mit Mittelwert μ und Standardabweichung σ', antwort: 'normPdf(X,μ,σ) (Menü 5,5,1)', erklaerung: ' X = Zufallsgröße, μ = Mittelwert, σ = Standardabweichung' },
+  { frage: 'Wahrscheinlichkeit für einen Wert a bis b bei einer Normalverteilung mit Mittelwert μ und Standardabweichung σ', antwort: 'normCdf(a,b,μ,σ) (Menü 5,5,2)', erklaerung: ' a = untere Schranke, b = obere Schranke, μ = Mittelwert, σ = Standardabweichung' },
+  { frage: 'Suche nach der Intervallsgrenze b für eine gegebene Wahrscheinlichkeit p bei einer Normalverteilung', antwort: 'invNorm(p,μ,σ) (Menü 5,5,3)', erklaerung: ' p = gegebene Wahrscheinlichkeit, μ = Mittelwert, σ = Standardabweichung, b = Intervallsgrenze' }
 ];
 
 let currentIndex = 0;
@@ -28,11 +36,27 @@ function updateExplainVisibility(el, cardData){
   if(el && el.classList.contains('flipped')){
     explainArea.classList.remove('hidden');
     explainText.classList.add('hidden');
-    explainText.textContent = cardData.erklaerung || '';
+    const content = cardData.erklaerung || '';
+
+    // / als leer deuten und dann Erklärung nicht anzeigen
+    if(typeof content === 'string' && content.trim() === '/'){
+        explainArea.classList.add('hidden');
+        explainText.classList.add('hidden');
+        explainText.innerHTML = '';
+      return;
+    }
+
+    // If the explanation looks like HTML (contains common tags), allow HTML (for images, markup).
+    // Otherwise set as text to avoid accidental HTML injection.
+    if(typeof content === 'string' && /<\s*(img|p|div|br|a|strong|em|ul|ol|li)/i.test(content)){
+      explainText.innerHTML = content;
+    } else {
+      explainText.textContent = content;
+    }
   } else {
     explainArea.classList.add('hidden');
     explainText.classList.add('hidden');
-    explainText.textContent = '';
+    explainText.innerHTML = '';
   }
 }
 
