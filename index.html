@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karteikarten</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    
+    <main>
+        <h1 class="title">Karteikarten</h1>
+        <h1 class="subtitle">Stochastik</h1>
+        <div class="stage">
+            <div class="cardWrap">
+                <div class="tip tip-left"><span class="arrow">←</span> <span class="tipText">zur nächsten</span></div>
+                <div id="cardRoot"></div>
+                <div class="tip tip-right"><span class="tipText">zur vorherigen</span> <span class="arrow">→</span></div>
+            </div>
+
+            <div id="explainArea" class="explain hidden">
+                <button id="explainToggle" class="explain-toggle">Erklärung</button>
+                <div id="explainText" class="explain-text hidden"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- list overlay + trigger -->
+    <button id="listButton" class="list-button" aria-label="Alle Fragen anzeigen">☰</button>
+    <div id="listOverlay" class="overlay hidden">
+        <div class="overlay-panel">
+            <button class="overlay-close" aria-label="Schließen">✕</button>
+            <ul id="questionList" class="question-list"></ul>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
