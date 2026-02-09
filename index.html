@@ -13,14 +13,18 @@
         <h1 class="title">Karteikarten</h1>
         <h1 class="subtitle">Stochastik</h1>
         <div class="stage">
-            <div class="cardWrap">
+            <div class="tips">
                 <div class="tip tip-left"><span class="arrow">←</span> <span class="tipText">zur nächsten</span></div>
-                <div id="cardRoot"></div>
                 <div class="tip tip-right"><span class="tipText">zur vorherigen</span> <span class="arrow">→</span></div>
+            </div>
+            <div class="cardWrap">
+                <div id="cardRoot"></div>
             </div>
 
             <div id="explainArea" class="explain hidden">
-                <button id="explainToggle" class="explain-toggle">Erklärung</button>
+                <div class="explain-row">
+                    <button id="explainToggle" class="explain-toggle">Erklärung</button>
+                </div>
                 <div id="explainText" class="explain-text hidden"></div>
             </div>
         </div>
