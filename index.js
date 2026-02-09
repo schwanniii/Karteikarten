@@ -1,6 +1,5 @@
 
 // Hardcoded Karten - passe hier deine Inhalte an
-// 'erklaerung' enthält die ausführliche Erklärung (nicht direkt auf Karte sichtbar)
 const CARDS = [
   { frage: 'Erwartungswert und Standardabweichung mit dem Taschenrechner', antwort: 'Tabelle mit Werten von k und korrespondierenden Wahrscheinlichkeiten anlegen und Menü 4,1,1 in der Tabelle ausführen', erklaerung: '<img src="Bild Erwartungswert und Standardabweichung.png" alt="Bild Erwartungswert und Standardabweichung">' },
   { frage: 'Was ist der Befehl für eine Fakultät?', antwort: '! (Menü 5,1)', erklaerung: '<figure><img src="Bild Binomialkoeffizient Fakultät.png" alt="Bild Fakultät"><figcaption>1! = 1 und 0! = 1</figcaption></figure>' },
