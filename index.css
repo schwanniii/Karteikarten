@@ -98,7 +98,6 @@ button.primary{background:var(--accent);color:#fff;border:0;padding:8px 12px;bor
   right: 0px;
   font-size:18px;
   color:var(--muted);
-  z-index: 1000;
   pointer-events:none; /* allow clicks to pass through to the card */
 }
 
