@@ -347,6 +347,9 @@ function openListOverlay(){
   if(!listOverlay) return;
   // populate
   questionList.innerHTML = '';
+  const Überschrift = document.createElement('li');
+  Überschrift.innerHTML = '<strong>alle Karten:</strong>';
+  questionList.appendChild(Überschrift);
   CARDS.forEach((c, i) => {
     const li = document.createElement('li');
     li.innerHTML = escapeHtml(c.frage || ('Karte ' + (i+1)));

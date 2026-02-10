@@ -92,6 +92,15 @@ button.primary{background:var(--accent);color:#fff;border:0;padding:8px 12px;bor
 #cardRoot{width:420px;max-width:92%;height:320px;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:12px}
 .cardWrap{position:relative;width:420px;max-width:92%;height:320px;display:flex;align-items:center;justify-content:center}
 
+.turn-over-indicator{
+  position:absolute;
+  bottom:-16px;
+  right: 24px;
+  font-size:18px;
+  color:var(--muted);
+  pointer-events:none; /* allow clicks to pass through to the card */
+}
+
 .tips{display:flex;justify-content:space-between;width:380px;max-width:92%;padding-bottom:0.8rem;}
 .tip{color:#888;font-size:14px;display:flex;align-items:center;gap:8px;pointer-events:auto}
 .tip .arrow{font-size:18px}
