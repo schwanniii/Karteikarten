@@ -89,15 +89,16 @@ button.primary{background:var(--accent);color:#fff;border:0;padding:8px 12px;bor
 .subtitle{text-align: center;margin:6px 0 20px;font-size:16px;color:var(--muted)}
 
 /* single centered card root */
-#cardRoot{width:420px;max-width:92%;height:320px;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:12px}
-.cardWrap{position:relative;width:420px;max-width:92%;height:320px;display:flex;align-items:center;justify-content:center}
+#cardRoot{width:420px;max-width:92%;height:320px;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:12px;}
+.cardWrap{position:relative;width:420px;max-width:92%;height:320px;display:flex;align-items:center;justify-content:center;}
 
 .turn-over-indicator{
-  position:absolute;
-  bottom:-16px;
-  right: 24px;
+  position: absolute;
+  bottom: 10px;
+  right: 0px;
   font-size:18px;
   color:var(--muted);
+  z-index: 1000;
   pointer-events:none; /* allow clicks to pass through to the card */
 }
 
